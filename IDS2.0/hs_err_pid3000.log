@@ -1,0 +1,142 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 65536 bytes for offset table expansion
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (blockOffsetTable.cpp:79), pid=3000, tid=2992
+#
+# JRE version: 7.0_02-b13
+# Java VM: Java HotSpot(TM) Client VM (22.0-b10 mixed mode windows-x86 )
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x167a5800):  VMThread [stack: 0x167d0000,0x16820000] [id=2992]
+
+Stack: [0x167d0000,0x16820000],  sp=0x1681fbb4,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+VM_Operation (0x0090f8e8): GenCollectForAllocation, mode: safepoint, requested by thread 0x003b6c00
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x16999000 JavaThread "AWT-Windows" daemon [_thread_in_native, id=1004, stack(0x16cf0000,0x16d40000)]
+  0x16997400 JavaThread "AWT-Shutdown" [_thread_blocked, id=1840, stack(0x16ca0000,0x16cf0000)]
+  0x16995c00 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=2324, stack(0x16c50000,0x16ca0000)]
+  0x168e8400 JavaThread "Service Thread" daemon [_thread_blocked, id=2900, stack(0x16bb0000,0x16c00000)]
+  0x168da400 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=3004, stack(0x16b60000,0x16bb0000)]
+  0x168d8800 JavaThread "Attach Listener" daemon [_thread_blocked, id=3172, stack(0x16b10000,0x16b60000)]
+  0x168d7400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=3204, stack(0x16ac0000,0x16b10000)]
+  0x167b0400 JavaThread "Finalizer" daemon [_thread_blocked, id=1072, stack(0x16870000,0x168c0000)]
+  0x167ab400 JavaThread "Reference Handler" daemon [_thread_blocked, id=3012, stack(0x16820000,0x16870000)]
+  0x003b6c00 JavaThread "main" [_thread_blocked, id=3476, stack(0x008c0000,0x00910000)]
+
+Other Threads:
+=>0x167a5800 VMThread [stack: 0x167d0000,0x16820000] [id=2992]
+  0x168fbc00 WatcherThread [stack: 0x16c00000,0x16c50000] [id=3300]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x003b5c88] Threads_lock - owner thread: 0x167a5800
+[0x003b6098] Heap_lock - owner thread: 0x003b6c00
+
+Heap
+ def new generation   total 4928K, used 0K [0x029a0000, 0x02ef0000, 0x07da0000)
+  eden space 4416K,   0% used [0x029a0000, 0x029a0000, 0x02df0000)
+  from space 512K,   0% used [0x02df0000, 0x02df0000, 0x02e70000)
+  to   space 512K,   0% used [0x02e70000, 0x02e70000, 0x02ef0000)
+ tenured generation   total 10752K, used 1904K [0x07da0000, 0x09dfc000, 0x125a0000)
+   the space 10752K,  17% used [0x07da0000, 0x07f7c008, 0x07f7c200, 0x08820000)
+ compacting perm gen  total 12288K, used 6052K [0x125a0000, 0x131a0000, 0x165a0000)
+   the space 12288K,  49% used [0x125a0000, 0x12b891f8, 0x12b89200, 0x131a0000)
+No shared spaces configured.
+
+Code Cache  [0x00920000, 0x009e0000, 0x02920000)
+ total_blobs=277 nmethods=82 adapters=131 free_code_cache=32018Kb largest_free_block=32787200
+
+Dynamic libraries:
+0x00400000 - 0x0042f000 	C:\Program Files\Java\jre7\bin\javaw.exe
+0x7c900000 - 0x7c9b0000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c8f4000 	C:\WINDOWS\system32\kernel32.dll
+0x77dd0000 - 0x77e6b000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e70000 - 0x77f01000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77d40000 - 0x77dd0000 	C:\WINDOWS\system32\USER32.dll
+0x77f10000 - 0x77f56000 	C:\WINDOWS\system32\GDI32.dll
+0x773d0000 - 0x774d2000 	C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.2180_x-ww_a84f1ff9\COMCTL32.dll
+0x77c10000 - 0x77c68000 	C:\WINDOWS\system32\msvcrt.dll
+0x77f60000 - 0x77fd6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x78aa0000 - 0x78b5e000 	C:\Program Files\Java\jre7\bin\msvcr100.dll
+0x6d830000 - 0x6db58000 	C:\Program Files\Java\jre7\bin\client\jvm.dll
+0x71ad0000 - 0x71ad9000 	C:\WINDOWS\system32\WSOCK32.dll
+0x71ab0000 - 0x71ac7000 	C:\WINDOWS\system32\WS2_32.dll
+0x71aa0000 - 0x71aa8000 	C:\WINDOWS\system32\WS2HELP.dll
+0x76b40000 - 0x76b6d000 	C:\WINDOWS\system32\WINMM.dll
+0x76bf0000 - 0x76bfb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x6d7c0000 - 0x6d7cc000 	C:\Program Files\Java\jre7\bin\verify.dll
+0x6d2f0000 - 0x6d310000 	C:\Program Files\Java\jre7\bin\java.dll
+0x6d810000 - 0x6d823000 	C:\Program Files\Java\jre7\bin\zip.dll
+0x6d000000 - 0x6d142000 	C:\Program Files\Java\jre7\bin\awt.dll
+0x77120000 - 0x771ac000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x774e0000 - 0x7761c000 	C:\WINDOWS\system32\ole32.dll
+0x5ad70000 - 0x5ada8000 	C:\WINDOWS\system32\uxtheme.dll
+0x74720000 - 0x7476b000 	C:\WINDOWS\system32\MSCTF.dll
+0x7c9c0000 - 0x7d1d4000 	C:\WINDOWS\system32\SHELL32.dll
+0x16df0000 - 0x16e18000 	C:\WINDOWS\system32\rsaenh.dll
+0x769c0000 - 0x76a73000 	C:\WINDOWS\system32\USERENV.dll
+0x5b860000 - 0x5b8b4000 	C:\WINDOWS\system32\netapi32.dll
+0x6d5e0000 - 0x6d5f4000 	C:\Program Files\Java\jre7\bin\net.dll
+0x71a50000 - 0x71a8f000 	C:\WINDOWS\System32\mswsock.dll
+0x76f20000 - 0x76f47000 	C:\WINDOWS\system32\DNSAPI.dll
+0x76fb0000 - 0x76fb8000 	C:\WINDOWS\System32\winrnr.dll
+0x76f60000 - 0x76f8c000 	C:\WINDOWS\system32\WLDAP32.dll
+0x76fc0000 - 0x76fc6000 	C:\WINDOWS\system32\rasadhlp.dll
+0x6d600000 - 0x6d60f000 	C:\Program Files\Java\jre7\bin\nio.dll
+0x6d3f0000 - 0x6d415000 	C:\Program Files\Java\jre7\bin\jpeg.dll
+0x6d510000 - 0x6d53d000 	C:\Program Files\Java\jre7\bin\kcms.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 
+java_command: com.ids.intruders.Intruder_1
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.7.0_02
+JRE_HOME=C:\Program Files\Java\jre7
+PATH=C:/Program Files/Java/jre7/bin/client;C:/Program Files/Java/jre7/bin;C:/Program Files/Java/jre7/lib/i386;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\Java\jdk1.7.0_02\bin;D:\Eclipse_J2ee(indigo)\eclipse;
+USERNAME=DHS
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 15 Model 4 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows XP Build 2600 Service Pack 2
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 15 model 4 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3
+
+Memory: 4k page, physical 1031660k(32568k free), swap 2065128k(5140k free)
+
+vm_info: Java HotSpot(TM) Client VM (22.0-b10) for windows-x86 JRE (1.7.0_02-b13), built on Nov 17 2011 17:17:32 by "java_re" with unknown MS VC++:1600
+
+time: Fri May 02 17:50:23 2014
+elapsed time: 3 seconds
+
